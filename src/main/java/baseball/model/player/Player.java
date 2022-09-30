@@ -13,7 +13,10 @@ public class Player {
     }
 
     public String selectMenu() {
-        return Console.readLine();
+        String input = Console.readLine();
+        isValidateNumber(input);
+        isValidateMenuNumber(input);
+        return input;
     }
 
     public void isValidateNumber(String input) {
@@ -26,6 +29,12 @@ public class Player {
 
     public void isValidateSizeNumber(int size, String input) {
         if (input.length() != size) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    public void isValidateMenuNumber(String input) {
+        if (!(input.equals("1") || input.equals("2"))) {
             throw new IllegalArgumentException();
         }
     }
