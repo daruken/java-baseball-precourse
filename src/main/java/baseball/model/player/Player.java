@@ -8,8 +8,12 @@ public class Player {
     public String inputNum() {
         String input = Console.readLine();
         isValidateNumber(input);
-        isValidateSizeNumber(input);
+        isValidateSizeNumber(BALL_NUMBER_LENGTH, input);
         return input;
+    }
+
+    public String selectMenu() {
+        return Console.readLine();
     }
 
     public void isValidateNumber(String input) {
@@ -20,8 +24,8 @@ public class Player {
         }
     }
 
-    public void isValidateSizeNumber(String input) {
-        if (input.length() > BALL_NUMBER_LENGTH) {
+    public void isValidateSizeNumber(int size, String input) {
+        if (input.length() != size) {
             throw new IllegalArgumentException();
         }
     }
