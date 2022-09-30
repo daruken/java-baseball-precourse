@@ -2,7 +2,7 @@ package baseball.model.game;
 
 import baseball.contract.Message;
 
-import static baseball.contract.Config.NUMBER_LENGTH;
+import static baseball.contract.Config.BALL_NUMBER_LENGTH;
 
 public class Game {
     public boolean isRunning = true;
@@ -16,7 +16,7 @@ public class Game {
     public String compareBall(String playerBall, String computerBall) {
         resetCountOfBall();
 
-        for (int i = 0; i < NUMBER_LENGTH; i++) {
+        for (int i = 0; i < BALL_NUMBER_LENGTH; i++) {
             checkStrikeCount(playerBall.charAt(i), computerBall, i);
         }
 
@@ -34,7 +34,7 @@ public class Game {
             return;
         }
 
-        for (int i = 0; i < NUMBER_LENGTH; i++) {
+        for (int i = 0; i < BALL_NUMBER_LENGTH; i++) {
             checkBallCount(playerBall, computerBall.charAt(i));
         }
     }
