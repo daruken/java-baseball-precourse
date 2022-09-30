@@ -12,7 +12,7 @@ public class Computer {
     private String generateRandom() {
         StringBuilder sb = new StringBuilder();
 
-        for (int i = 0; i < baseball.contract.Config.NUMBER_LENGTH; i++) {
+        for (int i = 0; i < baseball.contract.Config.BALL_NUMBER_LENGTH; i++) {
             sb.append(Randoms.pickNumberInRange(1, 9));
         }
 
