@@ -1,25 +1,28 @@
 package baseball.model.player;
 
-import baseball.contract.Config;
 import camp.nextstep.edu.missionutils.Console;
 
-public class Player {
-    public String inputNumber() {
-        String input = Console.readLine();
-        if (!isAllowNumber(input) || input.length() != Config.NUMBER_LENGTH) {
-            throw new IllegalArgumentException();
-        }
+import static baseball.contract.Config.BALL_NUMBER_LENGTH;
 
+public class Player {
+    public String inputNum() {
+        String input = Console.readLine();
+        isValidateNumber(input);
+        isValidateSizeNumber(input);
         return input;
     }
 
-    private boolean isAllowNumber(String input) {
+    public void isValidateNumber(String input) {
         try {
             Double.parseDouble(input);
         } catch (NumberFormatException nfe) {
-            return false;
+            throw new IllegalArgumentException();
         }
+    }
 
-        return true;
+    public void isValidateSizeNumber(String input) {
+        if (input.length() > BALL_NUMBER_LENGTH) {
+            throw new IllegalArgumentException();
+        }
     }
 }
